@@ -1,0 +1,5 @@
+John Doe;john.doe@example.com;Google
+Jane Smith;jane.smith@example.com;GitHub
+Alex Johnson;alex.johnson@example.com;Google
+Sara Wilson;sara.wilson@example.com;GitHub
+Mike Brown;mike.brown@example.com;Google

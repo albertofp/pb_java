@@ -1,0 +1,10 @@
+Software Engineer;Developing cutting-edge software solutions.;80000.0;San Francisco, CA;Java,Spring Boot,React;true;3;Tech Innovators;https://techinnovators.com/jobs/software-engineer
+Data Analyst;Analyzing and interpreting complex data sets.;60000.0;New York, NY;Python,Pandas,SQL;false;2;Data Insights;https://datainsights.com/jobs/data-analyst
+Frontend Developer;Creating user interfaces with a focus on user experience.;70000.0;Los Angeles, CA;JavaScript,React,HTML,CSS;true;2;WebSolutions;https://websolutions.com/jobs/frontend-developer
+Product Manager;Leading product development and strategy.;90000.0;Seattle, WA;Agile,Scrum,Product Management;false;5;InnovateTech;https://innovatetech.com/jobs/product-manager
+UI/UX Designer;Designing intuitive and aesthetically pleasing user interfaces.;75000.0;Chicago, IL;Sketch,Adobe XD,UI/UX Design;true;3;CreativeDesigns;https://creativedesigns.com/jobs/ui-ux-designer
+DevOps Engineer;Implementing and managing continuous integration and deployment.;85000.0;Denver, CO;Jenkins,Docker,Kubernetes;false;4;CloudOps;https://cloudops.com/jobs/devops-engineer
+Backend Developer;Building scalable and efficient server-side applications.;78000.0;Austin, TX;Node.js,Express,MongoDB;true;3;CodeCrafters;https://codecrafters.com/jobs/backend-developer
+Data Scientist;Applying advanced analytics and machine learning to extract insights.;95000.0;Boston, MA;Python,Scikit-Learn,TensorFlow;false;4;DataInnovate;https://datainnovate.com/jobs/data-scientist
+Network Engineer;Designing and implementing computer networks for optimal performance.;80000.0;Atlanta, GA;Cisco,Juniper,Network Security;true;3;NetSolutions;https://netsolutions.com/jobs/network-engineer
+Quality Assurance Analyst;Ensuring software products meet quality standards through testing.;65000.0;Houston, TX;Selenium,JUnit,TestNG;false;2;QualityAssure;https://qualityassure.com/jobs/qa-analyst
