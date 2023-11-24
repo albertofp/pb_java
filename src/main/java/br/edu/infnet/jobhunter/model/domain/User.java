@@ -1,18 +1,18 @@
 package br.edu.infnet.jobhunter.model.domain;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class User {
     public User() {
         this.id = UUID.randomUUID().toString();
-        this.savedJobs = new ArrayList<SavedJob>();
     }
 
     String name;
     String email;
     AuthMethod auth;
-    ArrayList<SavedJob> savedJobs;
+    List<SavedJob> savedJobs;
     String id;
 
     public String getId() {
@@ -47,7 +47,7 @@ public class User {
         this.auth = auth;
     }
 
-    public ArrayList<SavedJob> getSavedJobs() {
+    public List<SavedJob> getSavedJobs() {
         return savedJobs;
     }
 

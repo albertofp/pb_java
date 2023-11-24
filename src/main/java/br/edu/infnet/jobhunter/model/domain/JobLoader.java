@@ -1,5 +1,8 @@
 package br.edu.infnet.jobhunter.model.domain;
 
+import br.edu.infnet.jobhunter.model.service.JobService;
+import br.edu.infnet.jobhunter.model.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -11,11 +14,11 @@ import java.util.Map;
 
 @Component
 public class JobLoader implements ApplicationRunner {
-
-    private Map<String, Job> jobMap = new HashMap<>();
-
+    @Autowired
+    JobService jobService = new JobService();
     @Override
     public void run(ApplicationArguments args) throws Exception {
+
         FileReader file = new FileReader("files/jobs.txt");
         BufferedReader bufferedReader = new BufferedReader(file);
 
@@ -36,11 +39,11 @@ public class JobLoader implements ApplicationRunner {
             job.setCompany(fields[7]);
             job.setLink(fields[8]);
 
-            jobMap.put(job.getTitle(), job);
+            jobService.include(job);
             line = bufferedReader.readLine();
         }
 
-        for (Job job : jobMap.values()) {
+        for (Job job : jobService.list()) {
             System.out.println("Job loaded: " + job);
         }
 

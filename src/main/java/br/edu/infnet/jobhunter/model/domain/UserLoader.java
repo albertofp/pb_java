@@ -1,5 +1,7 @@
 package br.edu.infnet.jobhunter.model.domain;
 
+import br.edu.infnet.jobhunter.model.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -12,9 +14,11 @@ import java.util.Map;
 @Component
 public class UserLoader implements ApplicationRunner {
 
-    private Map<String, User> userMap = new HashMap<String,User>();
+    @Autowired
+    UserService userService = new UserService();
     @Override
     public void run(ApplicationArguments args) throws Exception {
+
         FileReader file = new FileReader("files/users.txt");
         BufferedReader bufferedReader = new BufferedReader(file);
 
@@ -29,11 +33,11 @@ public class UserLoader implements ApplicationRunner {
             user.setEmail(fields[1]);
             user.setAuth(AuthMethod.valueOf(fields[2]));
 
-            userMap.put(user.id, user);
+            userService.include(user);
             line = bufferedReader.readLine();
         }
 
-        for(User user : userMap.values()) {
+        for(User user : userService.list()) {
             System.out.println("User loaded: " + user);
         }
 
