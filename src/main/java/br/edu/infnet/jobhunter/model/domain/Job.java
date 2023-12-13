@@ -1,17 +1,34 @@
 package br.edu.infnet.jobhunter.model.domain;
 
-import java.util.Arrays;
+import javax.persistence.*;
+import java.util.List;
 
+@Entity
 public class Job {
-    String title;
-    String description;
-    Double salary;
-    String location;
-    String[] stack;
-    Boolean remote;
-    Integer experience;
-    String company;
-    String link;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String title;
+    private String description;
+    private Double salary;
+    private String location;
+
+    @ElementCollection
+    private List<String> stack;
+
+    private Boolean remote;
+    private Integer experience;
+    private String company;
+    private String link;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -45,11 +62,11 @@ public class Job {
         this.location = location;
     }
 
-    public String[] getStack() {
+    public List<String> getStack() {
         return stack;
     }
 
-    public void setStack(String[] stack) {
+    public void setStack(List<String> stack) {
         this.stack = stack;
     }
 
@@ -88,11 +105,12 @@ public class Job {
     @Override
     public String toString() {
         return "Job{" +
-                "title='" + title + '\'' +
+                "id=" + id +
+                ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", salary=" + salary +
                 ", location='" + location + '\'' +
-                ", stack=" + Arrays.toString(stack) +
+                ", stack=" + stack +
                 ", remote=" + remote +
                 ", experience=" + experience +
                 ", company='" + company + '\'' +

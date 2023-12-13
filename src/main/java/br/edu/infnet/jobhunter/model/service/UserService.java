@@ -1,21 +1,26 @@
 package br.edu.infnet.jobhunter.model.service;
 
 import br.edu.infnet.jobhunter.model.domain.User;
+import br.edu.infnet.jobhunter.model.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 @Service
 public class UserService {
-    private Map<String, User> userMap = new HashMap<String,User>();
+    private final UserRepository userRepository;
+
+    @Autowired
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public void include(User user) {
-        userMap.put(user.getId(),user);
+        userRepository.save(user);
     }
 
     public Collection<User> list() {
-        return userMap.values();
+        return userRepository.findAll();
     }
 }

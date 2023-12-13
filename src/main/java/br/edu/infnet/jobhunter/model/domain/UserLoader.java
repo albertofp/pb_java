@@ -14,8 +14,12 @@ import java.util.Map;
 @Component
 public class UserLoader implements ApplicationRunner {
 
+    private final UserService userService;
     @Autowired
-    UserService userService = new UserService();
+    public UserLoader(UserService userService) {
+        this.userService = userService;
+    }
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
 

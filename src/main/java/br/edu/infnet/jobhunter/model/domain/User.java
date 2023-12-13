@@ -1,26 +1,28 @@
 package br.edu.infnet.jobhunter.model.domain;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
-    public User() {
-        this.id = UUID.randomUUID().toString();
-    }
 
     String name;
     String email;
     AuthMethod auth;
-    List<SavedJob> savedJobs;
-    String id;
 
-    public String getId() {
-        return id;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    public void setId(String id) {
-        this.id = id;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SavedJob> savedJobs = new ArrayList<>();
+
+    public void addSavedJob(SavedJob savedJob) {
+        savedJobs.add(savedJob);
+        savedJob.setUser(this);
     }
 
     public String getName() {

@@ -1,7 +1,6 @@
 package br.edu.infnet.jobhunter.model.domain;
 
 import br.edu.infnet.jobhunter.model.service.JobService;
-import br.edu.infnet.jobhunter.model.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -9,13 +8,16 @@ import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
 
 @Component
 public class JobLoader implements ApplicationRunner {
+    private final JobService jobService;
+
     @Autowired
-    JobService jobService = new JobService();
+    public JobLoader(JobService jobService) {
+        this.jobService = jobService;
+    }
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
@@ -33,7 +35,7 @@ public class JobLoader implements ApplicationRunner {
             job.setDescription(fields[1]);
             job.setSalary(Double.parseDouble(fields[2]));
             job.setLocation(fields[3]);
-            job.setStack(fields[4].split(","));
+            job.setStack(Arrays.asList(fields[4].split(",")));
             job.setRemote(Boolean.parseBoolean(fields[5]));
             job.setExperience(Integer.parseInt(fields[6]));
             job.setCompany(fields[7]);
